@@ -1,2 +1,2 @@
-# clube-dos-tampinha
+# Clube dos Tampinha
 Clube de Cultura Brasileira
