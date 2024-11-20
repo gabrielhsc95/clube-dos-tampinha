@@ -1,2 +1,2 @@
 streamlit
-casandra-driver
+cassandra-driver
