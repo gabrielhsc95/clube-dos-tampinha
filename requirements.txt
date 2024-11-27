@@ -1,2 +1,4 @@
 streamlit
 cassandra-driver
+pydantic
+bcrypt

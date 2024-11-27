@@ -1,0 +1,50 @@
+{
+    "login": {
+        "en": "Login",
+        "pt-br": "Entrar"
+    },
+    "signin": {
+        "en": "Sign in",
+        "pt-br": "Registrar"
+    },
+    "email": {
+        "en": "email",
+        "pt-br": "email"
+    },
+    "password": {
+        "en": "password",
+        "pt-br": "senha"
+    },
+    "roleError": {
+        "en": "Wait until a role is assigned to you!",
+        "pt-br": "Aguarde até que uma função seja atribuída a você!"
+    },
+    "loginSuccess": {
+        "en": "Logged in as",
+        "pt-br": "Conectado como"
+    },
+    "admin": {
+        "en": "admin",
+        "pt-br": "administrador"
+    },
+    "teacher": {
+        "en": "teacher",
+        "pt-br": "professor"
+    },
+    "student": {
+        "en": "student",
+        "pt-br": "aluno"
+    },
+    "parent": {
+        "en": "parent",
+        "pt-br": "pais"
+    },
+    "loginError": {
+        "en": "Incorrect username or password!",
+        "pt-br": "Nome de usuário ou senha incorretos!"
+    },
+    "registerSuccess": {
+        "en": "You will receive an email as soon as your role has been assigned.",
+        "pt-br": "Você receberá um e-mail assim que sua função for atribuída."
+    }
+}
