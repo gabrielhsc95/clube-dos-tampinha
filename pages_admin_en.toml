@@ -1,7 +1,7 @@
 [[pages]]
-path = "pages/welcome.py"
+path = "p/welcome.py"
 name = "Home"
 
 [[pages]]
-path = "pages/admin/payment.py"
+path = "p/admin/payment.py"
 name = "Payment"

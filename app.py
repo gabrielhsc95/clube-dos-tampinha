@@ -1,10 +1,9 @@
 import streamlit as st
 from st_pages import get_nav_from_toml
 
-import pages.auth as auth
+import p.auth as auth
 import models as m
-import pages.welcome as welcome
-import pages.finish_register as finish_register
+import p.finish_register as finish_register
 
 from const import TRANSLATIONS, LANGUAGE_MAP
 from db.session import create_session
