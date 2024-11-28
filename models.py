@@ -12,7 +12,7 @@ class UserRole(str, Enum):
     Teacher = "teacher"
 
 
-class StrippedUser(BaseModel):
+class User(BaseModel):
     id: str
     email: str
     first_name: Optional[str]
@@ -20,7 +20,7 @@ class StrippedUser(BaseModel):
     role: Optional[UserRole]
 
 
-class User(BaseModel):
+class CompleteUser(BaseModel):
     id: str
     email: str
     password: str
@@ -29,8 +29,8 @@ class User(BaseModel):
     last_name: Optional[str]
     role: Optional[UserRole]
 
-    def to_stripped_user(self) -> StrippedUser:
-        return StrippedUser(
+    def to_user(self) -> User:
+        return User(
             id=self.id,
             email=self.email,
             first_name=self.first_name,

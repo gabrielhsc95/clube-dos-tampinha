@@ -8,12 +8,12 @@
         "pt-br": "Registrar"
     },
     "email": {
-        "en": "email",
-        "pt-br": "email"
+        "en": "Email",
+        "pt-br": "Email"
     },
     "password": {
-        "en": "password",
-        "pt-br": "senha"
+        "en": "Password",
+        "pt-br": "Senha"
     },
     "roleError": {
         "en": "Wait until a role is assigned to you!",
@@ -24,20 +24,20 @@
         "pt-br": "Conectado como"
     },
     "admin": {
-        "en": "admin",
-        "pt-br": "administrador"
+        "en": "Admin",
+        "pt-br": "Administrador"
     },
     "teacher": {
-        "en": "teacher",
-        "pt-br": "professor"
+        "en": "Teacher",
+        "pt-br": "Professor"
     },
     "student": {
-        "en": "student",
-        "pt-br": "aluno"
+        "en": "Student",
+        "pt-br": "Aluno"
     },
     "parent": {
-        "en": "parent",
-        "pt-br": "pais"
+        "en": "Parent",
+        "pt-br": "Pais"
     },
     "loginError": {
         "en": "Incorrect username or password!",
@@ -46,5 +46,33 @@
     "registerSuccess": {
         "en": "You will receive an email as soon as your role has been assigned.",
         "pt-br": "Você receberá um e-mail assim que sua função for atribuída."
+    },
+    "finishRegister": {
+        "en": "Please, finish your profile:",
+        "pt-br": "Por favor, complete seu perfil:"
+    },
+    "firstName": {
+        "en": "First Name",
+        "pt-br": "Nome"
+    },
+    "lastName": {
+        "en": "Last Name",
+        "pt-br": "Sobrenome"
+    },
+    "update": {
+        "en": "Update",
+        "pt-br": "Atualizar"
+    },
+    "userUpdated": {
+        "en": "User updated!",
+        "pt-br": "Usuário atualizado!"
+    },
+    "language": {
+        "en": "Language",
+        "pt-br": "Idioma"
+    },
+    "welcome": {
+        "en": "Welcome",
+        "pt-br": "Bem-vindo"
     }
 }

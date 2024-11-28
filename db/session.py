@@ -6,9 +6,6 @@ import zipfile
 from cassandra.auth import PlainTextAuthProvider
 from cassandra.cluster import Cluster, Session
 
-import models as m
-from const import KEY_SPACE
-
 
 def _load_local_env():
     from dotenv import load_dotenv
@@ -58,24 +55,3 @@ def create_session() -> Session:
 
     os.remove(temp_secure_connect_bundle)
     return session
-
-
-def get_user(session: Session, email: str) -> m.User:
-    result = session.execute(
-        f"SELECT * FROM {KEY_SPACE}.user WHERE email='{email}' ALLOW FILTERING;"
-    )
-    first_result = result.one()
-    kwarg = {k: getattr(first_result, k) for k in result.column_names}
-    kwarg["id"] = str(kwarg["id"])
-    return m.User(**kwarg)
-
-
-def register_user(session: Session, email: str, hashed_password: str, salt: str):
-    session.execute(
-        f"""
-        INSERT INTO {KEY_SPACE}.user 
-            (id    , email    , password           , salt    , first_name, last_name, role)
-        VALUES 
-            (uuid(), '{email}', '{hashed_password}', '{salt}', null      , null     , null);
-        """
-    )

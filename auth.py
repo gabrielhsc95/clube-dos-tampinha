@@ -3,7 +3,7 @@ from typing import Tuple
 import bcrypt
 import streamlit as st
 
-import db.utils as db
+import db.user as u
 from const import TRANSLATIONS
 
 
@@ -20,7 +20,7 @@ def check_password(password: str, hashed_password: str) -> bool:
 
 
 def show_login_page():
-    st.title(TRANSLATIONS["signin"][st.session_state["language"]])
+    st.title(TRANSLATIONS["login"][st.session_state["language"]])
     email = st.text_input(TRANSLATIONS["email"][st.session_state["language"]])
     password = st.text_input(
         TRANSLATIONS["password"][st.session_state["language"]], type="password"
@@ -33,13 +33,15 @@ def show_login_page():
         login_button = st.button(TRANSLATIONS["login"][st.session_state["language"]])
 
     if login_button:
-        user = db.get_user(st.session_state["db_session"], email)
+        user = u.get_complete_user(st.session_state["db_session"], email)
         if user.role is None:
             st.error(TRANSLATIONS["roleError"][st.session_state["language"]])
         else:
             if check_password(password, user.password):
-                st.session_state["authenticated"] = user.to_stripped_user()
-                st.success(f"{TRANSLATIONS["loginSuccess"][st.session_state["language"]]} {TRANSLATIONS[user.role][st.session_state["language"]]}!")
+                st.session_state["user"] = user.to_user()
+                st.success(
+                    f"{TRANSLATIONS['loginSuccess'][st.session_state['language']]} {TRANSLATIONS[user.role][st.session_state['language']]}!"
+                )
                 st.rerun()
             else:
                 st.error(TRANSLATIONS["loginError"][st.session_state["language"]])
@@ -47,11 +49,9 @@ def show_login_page():
     if signin_button:
         hashed_password, salt = hash_password(password)
         try:
-            db.register_user(
+            u.register_user(
                 st.session_state["db_session"], email, hashed_password, salt
             )
-            st.success(
-                TRANSLATIONS["registerSuccess"][st.session_state["language"]]
-            )
+            st.success(TRANSLATIONS["registerSuccess"][st.session_state["language"]])
         except Exception as e:
             st.error(e)
