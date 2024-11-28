@@ -2,3 +2,4 @@ streamlit
 cassandra-driver
 pydantic
 bcrypt
+st-pages

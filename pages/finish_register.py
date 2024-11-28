@@ -24,10 +24,3 @@ def show_finish_register_page():
             st.rerun()
         except Exception as e:
             st.error(e)
-
-
-def show_welcome_page():
-    user: m.User = st.session_state["user"]
-    st.write(
-        f"{TRANSLATIONS['welcome'][st.session_state['language']]}, {user.first_name} {user.last_name}."
-    )

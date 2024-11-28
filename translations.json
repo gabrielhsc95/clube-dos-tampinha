@@ -74,5 +74,9 @@
     "welcome": {
         "en": "Welcome",
         "pt-br": "Bem-vindo"
+    },
+    "underConstruction": {
+        "en": "Under Construction!",
+        "pt-br": "Em construção!"
     }
 }

@@ -1,0 +1,7 @@
+[[pages]]
+path = "pages/welcome.py"
+name = "Home"
+
+[[pages]]
+path = "pages/admin/payment.py"
+name = "Payment"
