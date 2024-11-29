@@ -3,5 +3,9 @@ path = "p/welcome.py"
 name = "Home"
 
 [[pages]]
+path = "p/admin/user.py"
+name = "Users"
+
+[[pages]]
 path = "p/admin/payment.py"
 name = "Payment"

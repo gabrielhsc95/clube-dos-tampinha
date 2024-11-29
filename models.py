@@ -1,6 +1,5 @@
-from datetime import date
 from enum import Enum
-from typing import Optional
+from typing import List, Optional
 
 from pydantic import BaseModel
 
@@ -10,6 +9,7 @@ class UserRole(str, Enum):
     Student = "student"
     Parent = "parent"
     Teacher = "teacher"
+    NotAssigned = "n/a"
 
 
 class User(BaseModel):
@@ -37,3 +37,20 @@ class CompleteUser(BaseModel):
             last_name=self.last_name,
             role=self.role,
         )
+
+
+class Parent(BaseModel):
+    user_id: str
+    children: List[str]
+    payments: List[str]
+
+
+class Student(BaseModel):
+    user_id: str
+    parents: List[str]
+    activities: List[str]
+
+
+class Teacher(BaseModel):
+    user_id: str
+    students: List[str]

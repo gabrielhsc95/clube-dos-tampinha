@@ -78,5 +78,25 @@
     "underConstruction": {
         "en": "Under Construction!",
         "pt-br": "Em construção!"
+    },
+    "assignRole": {
+        "en": "Assign Role",
+        "pt-br": "Atribuir Função!"
+    },
+    "user": {
+        "en": "user",
+        "pt-br": "usuário"
+    },
+    "role": {
+        "en": "role",
+        "pt-br": "função"
+    },
+    "assign": {
+        "en": "Assign",
+        "pt_br": "Atribuir"
+    },
+    "allRolesAssigned": {
+        "en": "All roles assigned!",
+        "pt-br": "Todas as funções foram atribuidas!"
     }
 }

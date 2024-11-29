@@ -8,3 +8,7 @@ class UserDoesNotExist(ClubeDosTampinhaError):
 
 class UserAlreadyExists(ClubeDosTampinhaError):
     pass
+
+
+class UserRoleDoesNotExist(ClubeDosTampinhaError):
+    pass
