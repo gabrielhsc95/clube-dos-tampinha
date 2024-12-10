@@ -114,5 +114,13 @@
     "createStudentSuccess": {
         "en": "Student created with success",
         "pt-br": "Aluno criado com sucesso"
+    },
+    "assignStudents": {
+        "en": "Assign Students",
+        "pt-br": "Atribuir Alunos"
+    },
+    "assignStudentsSuccess": {
+        "en": "Students assigned with success",
+        "pt-br": "Alunos stribuidos com sucesso"
     }
 }

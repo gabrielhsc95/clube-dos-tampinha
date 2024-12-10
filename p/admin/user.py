@@ -62,16 +62,16 @@ if "user" in st.session_state:
             st.write(TRANSLATIONS["allRolesAssigned"][st.session_state["language"]])
 
     with st.expander(TRANSLATIONS["createStudent"][st.session_state["language"]]):
-        parents = p.get_all_parents(st.session_state["db_session"])
-        named_parents: list[m.NamedParent] = [
-            u.to_named_version(st.session_state["db_session"], pp) for pp in parents
+        teachers = p.get_all_parents(st.session_state["db_session"])
+        named_teachers: list[m.NamedParent] = [
+            u.to_named_version(st.session_state["db_session"], pp) for pp in teachers
         ]
-        named_parents_dict = {
-            f"{pp.first_name} {pp.last_name}": pp for pp in named_parents
+        named_teachers_dict = {
+            f"{pp.first_name} {pp.last_name}": pp for pp in named_teachers
         }
-        selected_user_email = st.selectbox(
+        selected_teacher = st.selectbox(
             TRANSLATIONS["parent"][st.session_state["language"]],
-            named_parents_dict.keys(),
+            named_teachers_dict.keys(),
         )
         first_name = st.text_input(
             TRANSLATIONS["firstName"][st.session_state["language"]]
@@ -100,8 +100,43 @@ if "user" in st.session_state:
             s.create_student(
                 st.session_state["db_session"],
                 user_student.id,
-                [named_parents_dict[selected_user_email].user_id],
+                [named_teachers_dict[selected_teacher].user_id],
             )
             st.success(
                 TRANSLATIONS["createStudentSuccess"][st.session_state["language"]]
+            )
+
+    with st.expander(TRANSLATIONS["assignStudents"][st.session_state["language"]]):
+        teachers = t.get_all_teachers(st.session_state["db_session"])
+        named_teachers: list[m.NamedTeacher] = [
+            u.to_named_version(st.session_state["db_session"], tt) for tt in teachers
+        ]
+        named_teachers_dict = {
+            f"{tt.first_name} {tt.last_name}": tt for tt in named_teachers
+        }
+        selected_teacher = st.selectbox(
+            TRANSLATIONS["teacher"][st.session_state["language"]],
+            named_teachers_dict.keys(),
+        )
+
+        students = s.get_all_students(st.session_state["db_session"])
+        named_students: list[m.NamedStudent] = [
+            u.to_named_version(st.session_state["db_session"], ss) for ss in students
+        ]
+        named_students_dict = {
+            f"{ss.first_name} {ss.last_name}": ss for ss in named_students
+        }
+        selected_students = st.multiselect(
+            TRANSLATIONS["student"][st.session_state["language"]],
+            named_students_dict.keys(),
+        )
+
+        if st.button(TRANSLATIONS["assign"][st.session_state["language"]]):
+            t.assign_students(
+                st.session_state["db_session"],
+                named_teachers_dict[selected_teacher].user_id,
+                [named_students_dict[ss].user_id for ss in selected_students],
+            )
+            st.success(
+                TRANSLATIONS["assignStudentsSuccess"][st.session_state["language"]]
             )

@@ -1,6 +1,6 @@
 # TODO
 - [x] Models
-- [ ] Create a student
-- [ ] Assign Students to Teacher
+- [x] Create a student
+- [x] Assign Students to Teacher
 - [ ] Log Activity
 - [ ] 
