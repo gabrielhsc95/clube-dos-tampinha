@@ -54,3 +54,20 @@ class Student(BaseModel):
 class Teacher(BaseModel):
     user_id: str
     students: List[str]
+
+
+class Named(BaseModel):
+    first_name: str
+    last_name: str
+
+
+class NamedParent(Named, Parent):
+    pass
+
+
+class NamedStudent(Named, Student):
+    pass
+
+
+class NamedTeacher(Named, Teacher):
+    pass
