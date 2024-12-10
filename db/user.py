@@ -1,4 +1,4 @@
-from typing import Dict, Iterable
+from typing import Dict, Iterable, Union
 
 from cassandra.cluster import Session
 
@@ -26,9 +26,9 @@ def get_complete_user(session: Session, email: str) -> m.CompleteUser:
 
 def get_user_by_email(session: Session, email: str) -> m.User:
     result = session.execute(
-        f""""
+        f"""
         SELECT id, email, first_name, last_name, role 
-        FROM {KEY_SPACE}.user 
+        FROM {KEY_SPACE}.user
         WHERE email='{email}' 
         ALLOW FILTERING;
         """
@@ -107,3 +107,34 @@ def set_user_role(session: Session, role: m.UserRole, user_id: str):
         WHERE id = {user_id};
         """
     )
+
+
+def get_names(session: Session, user_id: str) -> m.Named:
+    result = session.execute(
+        f"""
+        SELECT first_name, last_name
+        FROM {KEY_SPACE}.user
+        WHERE id = {user_id};
+        """
+    )
+    first_result = result.one()
+    if first_result is None:
+        # it should probably not end up here tho.
+        raise e.UserDoesNotExist()
+    return m.Named(
+        first_name=first_result.first_name,
+        last_name=first_result.last_name,
+    )
+
+
+def to_named_version(
+    session: Session, model: Union[m.Parent, m.Student, m.Teacher]
+) -> Union[m.NamedParent, m.NamedStudent, m.NamedTeacher]:
+    model_map = {
+        m.Parent: m.NamedParent,
+        m.Student: m.NamedStudent,
+        m.Teacher: m.NamedTeacher,
+    }
+    name = get_names(session, model.user_id)
+    kwargs = {**name.model_dump(), **model.model_dump()}
+    return model_map.get(model.__class__)(**kwargs)
