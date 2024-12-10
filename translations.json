@@ -98,5 +98,21 @@
     "allRolesAssigned": {
         "en": "All roles assigned!",
         "pt-br": "Todas as funções foram atribuidas!"
+    },
+    "assignRoleSuccess": {
+        "en": "Role assigned with success",
+        "pt-br": "Funcão atribuida com sucesso"
+    },
+    "createStudent": {
+        "en": "Create Student",
+        "pt-br": "Criar Aluno"
+    },
+    "create": {
+        "en": "Create",
+        "pt-br": "Criar"
+    },
+    "createStudentSuccess": {
+        "en": "Student created with success",
+        "pt-br": "Aluno criado com sucesso"
     }
 }

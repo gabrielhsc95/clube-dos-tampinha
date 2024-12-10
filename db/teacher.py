@@ -9,6 +9,6 @@ def create_teacher(session: Session, user_id: str):
         INSERT INTO {KEY_SPACE}.teacher 
                 (user_id  , students)
             VALUES 
-                ({user_id}, null);
+                ({user_id}, []);
         """
     )
