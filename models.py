@@ -1,3 +1,4 @@
+from datetime import date
 from enum import Enum
 from typing import List, Optional
 
@@ -71,3 +72,12 @@ class NamedStudent(Named, Student):
 
 class NamedTeacher(Named, Teacher):
     pass
+
+
+class Communication(BaseModel):
+    id: str
+    sender: str
+    receiver: str
+    content: str
+    send_at: date
+    is_viewed: bool
