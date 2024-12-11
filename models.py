@@ -79,5 +79,5 @@ class Communication(BaseModel):
     sender: str
     receiver: str
     content: str
-    send_at: date
+    sent_at: date
     is_viewed: bool

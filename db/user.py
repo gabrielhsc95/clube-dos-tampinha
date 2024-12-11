@@ -1,3 +1,4 @@
+from functools import lru_cache
 from typing import Dict, Iterable, Union
 
 from cassandra.cluster import Session
@@ -109,6 +110,7 @@ def set_user_role(session: Session, role: m.UserRole, user_id: str):
     )
 
 
+@lru_cache
 def get_names(session: Session, user_id: str) -> m.Named:
     result = session.execute(
         f"""

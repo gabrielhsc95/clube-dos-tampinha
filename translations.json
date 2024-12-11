@@ -139,8 +139,32 @@
         "en": "To",
         "pt-br": "Para"
     },
+    "from": {
+        "en": "From",
+        "pt-br": "Para"
+    },
     "message": {
         "en": "Message",
         "pt-br": "Mensagem"
+    },
+    "sent": {
+        "en": "Send",
+        "pt-br": "Enviado"
+    },
+    "viewed": {
+        "en": "Viewed",
+        "pt-br": "Visualizado"
+    },
+    "seeCommunication": {
+        "en": "See Communications",
+        "pt-br": "Visualizar Comunicações"
+    },
+    "startDate": {
+        "en": "Start date",
+        "pt-br": "Data de início"
+    },
+    "endDate": {
+        "en": "End date",
+        "pt-br": "Data de término"
     }
 }
