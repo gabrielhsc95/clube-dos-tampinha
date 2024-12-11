@@ -24,5 +24,6 @@
 - [ ] Parent: Fake Payment
 - [ ] Parent: Real Payment
 - [ ] Logging
+- [ ] Log out
 
 

@@ -12,8 +12,8 @@ def create_parent(session: Session, user_id: str):
         f"""
         INSERT INTO {KEY_SPACE}.parent 
                 (user_id  , children, payments)
-            VALUES 
-                ({user_id}, []      , []);
+        VALUES 
+            ({user_id}, []      , []);
         """
     )
 

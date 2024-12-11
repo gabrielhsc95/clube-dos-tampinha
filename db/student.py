@@ -11,9 +11,9 @@ def create_student(session: Session, user_id: str, parents: List[str]):
     session.execute(
         f"""
         INSERT INTO {KEY_SPACE}.student 
-                (user_id  , parents                        , activities)
-            VALUES 
-                ({user_id}, {str(parents).replace("'", "")}, []);
+            (user_id  , parents                        , activities)
+        VALUES 
+            ({user_id}, {str(parents).replace("'", "")}, []);
         """
     )
 
