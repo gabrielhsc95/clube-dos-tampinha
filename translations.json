@@ -93,7 +93,7 @@
     },
     "assign": {
         "en": "Assign",
-        "pt_br": "Atribuir"
+        "pt-br": "Atribuir"
     },
     "allRolesAssigned": {
         "en": "All roles assigned!",
@@ -122,5 +122,25 @@
     "assignStudentsSuccess": {
         "en": "Students assigned with success",
         "pt-br": "Alunos stribuidos com sucesso"
+    },
+    "sendCommunication": {
+        "en": "Send Communication",
+        "pt-br": "Enviar Comunicado"
+    },
+    "send": {
+        "en": "Send",
+        "pt-br": "Enviar"
+    },
+    "sendCommunicationSuccess": {
+        "en": "Communication sent with success",
+        "pt-br": "Comunicado enviado com sucesso"
+    },
+    "to": {
+        "en": "To",
+        "pt-br": "Para"
+    },
+    "message": {
+        "en": "Message",
+        "pt-br": "Mensagem"
     }
 }

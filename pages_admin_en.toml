@@ -8,4 +8,8 @@ name = "Users"
 
 [[pages]]
 path = "p/admin/payment.py"
-name = "Payment"
+name = "Payments"
+
+[[pages]]
+path = "p/admin/communication.py"
+name = "Communications"
