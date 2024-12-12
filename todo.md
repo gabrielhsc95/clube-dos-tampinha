@@ -8,12 +8,16 @@
 - [x] Admin: Create a student
 - [x] Admin: Assign Students to Teacher
 - [ ] Models: Activity
+- [ ] Admin: See Activity
 - [ ] Teacher: Log Activity
 - [ ] Parent: See Activity
-- [ ] Models: Communication, Authorization
-- [ ] Admin: Send Communication
-- [ ] Admin: Send Authorization
+- [x] Models: Communication, Authorization
+- [x] Admin: Send Communication
+- [x] Admin: See Communication
+- [x] Admin: Send Authorization
+- [x] Admin: See Authorization
 - [ ] Teacher: Send Communication
+- [ ] Teacher: See Communication
 - [ ] Teacher: Send Authorization
 - [ ] Parent: See Communication
 - [ ] Parent: Approve Authorization

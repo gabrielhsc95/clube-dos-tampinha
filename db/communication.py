@@ -1,4 +1,4 @@
-from datetime import date
+from typing import Iterable
 
 from cassandra.cluster import Session
 
@@ -33,7 +33,7 @@ def view_communication(session: Session, id: str):
     )
 
 
-def get_communications(session: Session, user_id: str) -> m.Communication:
+def get_communications(session: Session, user_id: str) -> Iterable[m.Communication]:
     communications_db = session.execute(
         f"""
         SELECT *
@@ -48,11 +48,12 @@ def get_communications(session: Session, user_id: str) -> m.Communication:
         kwarg["id"] = str(kwarg["id"])
         kwarg["sender"] = str(kwarg["sender"])
         kwarg["receiver"] = str(kwarg["receiver"])
+        kwarg["sent_at"] = kwarg["sent_at"].date()
         communications.append(m.Communication(**kwarg))
     return communications
 
 
-def get_all_communications(session: Session) -> m.Communication:
+def get_all_communications(session: Session) -> Iterable[m.Communication]:
     communications_db = session.execute(
         f"""
         SELECT *

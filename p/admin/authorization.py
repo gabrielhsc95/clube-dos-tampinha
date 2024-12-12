@@ -3,7 +3,7 @@ from datetime import date, timedelta
 import pandas as pd
 import streamlit as st
 
-import db.communication as c
+import db.authorization as a
 import db.parent as p
 import db.user as u
 import models as m
@@ -16,10 +16,10 @@ named_parents: list[m.NamedParent] = [
 ]
 named_parents_dict = {f"{pp.first_name} {pp.last_name}": pp for pp in named_parents}
 
-# All Communications
-communications = c.get_all_communications(st.session_state["db_session"])
-communications = [
-    c.enrich_communication(st.session_state["db_session"], cc) for cc in communications
+# All Authorizations
+authorizations = a.get_all_authorizations(st.session_state["db_session"])
+authorizations = [
+    a.enrich_authorization(st.session_state["db_session"], aa) for aa in authorizations
 ]
 
 
@@ -27,7 +27,7 @@ if "user" in st.session_state:
     user: m.User = st.session_state["user"]
     st.write(TRANSLATIONS["underConstruction"][st.session_state["language"]])
 
-    with st.expander(TRANSLATIONS["sendCommunication"][st.session_state["language"]]):
+    with st.expander(TRANSLATIONS["sendAuthorization"][st.session_state["language"]]):
         selected_parents = st.multiselect(
             TRANSLATIONS["to"][st.session_state["language"]],
             named_parents_dict.keys(),
@@ -35,17 +35,17 @@ if "user" in st.session_state:
         content = st.text_input(TRANSLATIONS["message"][st.session_state["language"]])
         if st.button(TRANSLATIONS["send"][st.session_state["language"]]):
             for pp in selected_parents:
-                c.create_communication(
+                a.create_authorization(
                     st.session_state["db_session"],
                     user.id,
                     named_parents_dict[pp].user_id,
                     content,
                 )
             st.success(
-                TRANSLATIONS["sendCommunicationSuccess"][st.session_state["language"]]
+                TRANSLATIONS["sendAuthorizationSuccess"][st.session_state["language"]]
             )
 
-    with st.expander(TRANSLATIONS["seeCommunication"][st.session_state["language"]]):
+    with st.expander(TRANSLATIONS["seeAuthorization"][st.session_state["language"]]):
         start_date = st.date_input(
             TRANSLATIONS["startDate"][st.session_state["language"]],
             value=date.today() - timedelta(days=30),
@@ -53,20 +53,23 @@ if "user" in st.session_state:
         end_date = st.date_input(
             TRANSLATIONS["endDate"][st.session_state["language"]],
         )
-        communications_df = pd.DataFrame([cc.model_dump() for cc in communications])
-        if not communications_df.empty:
-            communications_df = communications_df.drop(columns=["id"])
-            communications_df = communications_df[
-                (communications_df["sent_at"] >= start_date)
-                & (communications_df["sent_at"] <= end_date)
+        authorizations_df = pd.DataFrame([cc.model_dump() for cc in authorizations])
+        if not authorizations_df.empty:
+            authorizations_df = authorizations_df.drop(columns=["id"])
+            authorizations_df = authorizations_df[
+                (authorizations_df["sent_at"] >= start_date)
+                & (authorizations_df["sent_at"] <= end_date)
             ]
-            communications_df = communications_df.rename(
+            authorizations_df = authorizations_df.rename(
                 columns={
                     "sender": TRANSLATIONS["from"][st.session_state["language"]],
                     "receiver": TRANSLATIONS["to"][st.session_state["language"]],
                     "content": TRANSLATIONS["message"][st.session_state["language"]],
                     "sent_at": TRANSLATIONS["sent"][st.session_state["language"]],
                     "is_viewed": TRANSLATIONS["viewed"][st.session_state["language"]],
+                    "is_confirmed": TRANSLATIONS["confirmed"][
+                        st.session_state["language"]
+                    ],
                 }
             )
-        st.dataframe(communications_df, hide_index=True)
+        st.dataframe(authorizations_df, hide_index=True)

@@ -127,6 +127,10 @@
         "en": "Send Communication",
         "pt-br": "Enviar Comunicado"
     },
+    "sendAuthorization": {
+        "en": "Send Authorization",
+        "pt-br": "Enviar Autorização"
+    },
     "send": {
         "en": "Send",
         "pt-br": "Enviar"
@@ -134,6 +138,10 @@
     "sendCommunicationSuccess": {
         "en": "Communication sent with success",
         "pt-br": "Comunicado enviado com sucesso"
+    },
+    "sendAuthorizationSuccess": {
+        "en": "Authorization sent with success",
+        "pt-br": "Autorização enviado com sucesso"
     },
     "to": {
         "en": "To",
@@ -155,9 +163,17 @@
         "en": "Viewed",
         "pt-br": "Visualizado"
     },
+    "confirmed": {
+        "en": "Confirmed",
+        "pt-br": "Confirmado"
+    },
     "seeCommunication": {
         "en": "See Communications",
         "pt-br": "Visualizar Comunicações"
+    },
+    "seeAuthorization": {
+        "en": "See Authorizations",
+        "pt-br": "Visualizar Autorizações"
     },
     "startDate": {
         "en": "Start date",

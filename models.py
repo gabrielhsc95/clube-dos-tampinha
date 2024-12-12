@@ -81,3 +81,7 @@ class Communication(BaseModel):
     content: str
     sent_at: date
     is_viewed: bool
+
+
+class Authorization(Communication):
+    is_confirmed: bool

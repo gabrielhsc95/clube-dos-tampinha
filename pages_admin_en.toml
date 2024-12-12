@@ -13,3 +13,7 @@ name = "Payments"
 [[pages]]
 path = "p/admin/communication.py"
 name = "Communications"
+
+[[pages]]
+path = "p/admin/authorization.py"
+name = "Authorizations"
