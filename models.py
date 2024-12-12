@@ -85,3 +85,13 @@ class Communication(BaseModel):
 
 class Authorization(Communication):
     is_confirmed: bool
+
+
+class Activity(BaseModel):
+    id: str
+    responsible_teacher: str
+    date: date
+    student: str
+    grade: float
+    title: str
+    report: str
