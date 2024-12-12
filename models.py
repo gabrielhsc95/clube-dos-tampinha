@@ -18,7 +18,7 @@ class User(BaseModel):
     email: str
     first_name: Optional[str]
     last_name: Optional[str]
-    role: Optional[UserRole]
+    role: UserRole
 
 
 class CompleteUser(BaseModel):
@@ -28,7 +28,7 @@ class CompleteUser(BaseModel):
     salt: str
     first_name: Optional[str]
     last_name: Optional[str]
-    role: Optional[UserRole]
+    role: UserRole
 
     def to_user(self) -> User:
         return User(
@@ -95,3 +95,22 @@ class Activity(BaseModel):
     grade: float
     title: str
     report: str
+
+
+class PaymentStatus(str, Enum):
+    Complete = "complete"
+    Delayed = "delayed"
+    Waiting = "waiting"
+    Processing = "processing"
+    Failed = "failed"
+
+
+class Payment(BaseModel):
+    id: str
+    value: float
+    due_date: date
+    status: PaymentStatus
+    payment_date: Optional[date]
+    paid_by: Optional[str]
+    reason: str
+    student: str

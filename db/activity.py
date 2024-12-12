@@ -10,7 +10,7 @@ from const import KEY_SPACE
 def create_activity(
     session: Session,
     teacher_id: str,
-    date: date,
+    date_: date,
     student_id: str,
     grade: float,
     title: str,
@@ -21,7 +21,7 @@ def create_activity(
         INSERT INTO {KEY_SPACE}.activity 
             (id    , responsible_teacher, date                                 , student     , grade  , title  , report)
         VALUES 
-            (uuid(), {teacher_id}       , toDate('{date.strftime("%Y-%m-%d")}'), {student_id}, {grade}, {title}, {report});
+            (uuid(), {teacher_id}       , toDate('{date_.strftime("%Y-%m-%d")}'), {student_id}, {grade}, {title}, {report});
         """
     )
 

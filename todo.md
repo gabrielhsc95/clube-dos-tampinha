@@ -21,7 +21,7 @@
 - [ ] Teacher: Send Authorization
 - [ ] Parent: See Communication
 - [ ] Parent: Approve Authorization
-- [ ] Models: Payments
+- [x] Models: Payments
 - [ ] Admin: Send Invoice
 - [ ] Admin: View Invoices
 - [ ] Parent: View Invoices
