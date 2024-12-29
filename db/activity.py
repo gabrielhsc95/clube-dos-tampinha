@@ -26,12 +26,15 @@ def create_activity(
     )
 
 
-def get_activities(session: Session, student_id: str) -> Iterable[m.Activity]:
+def get_activities(
+    session: Session, student_id: str, responsible_teacher: str
+) -> Iterable[m.Activity]:
     activities_db = session.execute(
         f"""
         SELECT *
         FROM {KEY_SPACE}.activity
-        WHERE student_id={student_id}
+        WHERE student={student_id}
+          AND responsible_teacher={responsible_teacher}
         ALLOW FILTERING;
         """
     )

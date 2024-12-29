@@ -18,7 +18,7 @@ def create_student(session: Session, user_id: str, parents: List[str]):
     )
 
 
-def get_all_students(session: Session) -> Iterable[m.Teacher]:
+def get_all_students(session: Session) -> Iterable[m.Student]:
     students_db = session.execute(
         f"""
         SELECT *
@@ -31,3 +31,17 @@ def get_all_students(session: Session) -> Iterable[m.Teacher]:
         kwarg["user_id"] = str(kwarg["user_id"])
         students.append(m.Student(**kwarg))
     return students
+
+
+def get_student(session: Session, user_id: str) -> m.Student:
+    results_db = session.execute(
+        f"""
+        SELECT *
+        FROM {KEY_SPACE}.student
+        WHERE user_id={user_id};
+        """
+    )
+    first_result = results_db.one()
+    kwarg = {k: convert_lists(first_result, k) for k in results_db.column_names}
+    kwarg["user_id"] = str(kwarg["user_id"])
+    return m.Student(**kwarg)

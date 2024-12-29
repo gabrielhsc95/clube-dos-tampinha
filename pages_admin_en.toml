@@ -17,3 +17,7 @@ name = "Communications"
 [[pages]]
 path = "p/admin/authorization.py"
 name = "Authorizations"
+
+[[pages]]
+path = "p/admin/activity.py"
+name = "Activities"

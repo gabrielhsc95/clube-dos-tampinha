@@ -182,5 +182,9 @@
     "endDate": {
         "en": "End date",
         "pt-br": "Data de término"
+    },
+    "seeActivities": {
+        "en": "See Activities",
+        "pt-br": "Ver Atividades"
     }
 }

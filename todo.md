@@ -8,7 +8,7 @@
 - [x] Admin: Create a student
 - [x] Admin: Assign Students to Teacher
 - [x] Models: Activity
-- [ ] Admin: See Activity
+- [x] Admin: See Activity
 - [ ] Teacher: Log Activity
 - [ ] Parent: See Activity
 - [x] Models: Communication, Authorization
