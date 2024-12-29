@@ -16,9 +16,10 @@
 - [x] Admin: See Communication
 - [x] Admin: Send Authorization
 - [x] Admin: See Authorization
-- [ ] Teacher: Send Communication
-- [ ] Teacher: See Communication
+- [x] Teacher: Send Communication
+- [x] Teacher: See Communication
 - [ ] Teacher: Send Authorization
+- [ ] Teacher: See Authorization
 - [ ] Parent: See Communication
 - [ ] Parent: Approve Authorization
 - [x] Models: Payments

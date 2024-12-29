@@ -71,6 +71,50 @@ def get_all_communications(session: Session) -> Iterable[m.Communication]:
     return communications
 
 
+def get_all_communications_by_sender(
+    session: Session, sender: str
+) -> Iterable[m.Communication]:
+    communications_db = session.execute(
+        f"""
+        SELECT *
+        FROM {KEY_SPACE}.communication
+        WHERE sender={sender}
+        ALLOW FILTERING;
+        """
+    )
+    communications = []
+    for c in communications_db:
+        kwarg = {k: getattr(c, k) for k in communications_db.column_names}
+        kwarg["id"] = str(kwarg["id"])
+        kwarg["sender"] = str(kwarg["sender"])
+        kwarg["receiver"] = str(kwarg["receiver"])
+        kwarg["sent_at"] = kwarg["sent_at"].date()
+        communications.append(m.Communication(**kwarg))
+    return communications
+
+
+def get_all_communications_by_receiver(
+    session: Session, receiver: str
+) -> Iterable[m.Communication]:
+    communications_db = session.execute(
+        f"""
+        SELECT *
+        FROM {KEY_SPACE}.communication
+        WHERE receiver={receiver}
+        ALLOW FILTERING;
+        """
+    )
+    communications = []
+    for c in communications_db:
+        kwarg = {k: getattr(c, k) for k in communications_db.column_names}
+        kwarg["id"] = str(kwarg["id"])
+        kwarg["sender"] = str(kwarg["sender"])
+        kwarg["receiver"] = str(kwarg["receiver"])
+        kwarg["sent_at"] = kwarg["sent_at"].date()
+        communications.append(m.Communication(**kwarg))
+    return communications
+
+
 def enrich_communication(
     session: Session, communication: m.Communication
 ) -> m.Communication:

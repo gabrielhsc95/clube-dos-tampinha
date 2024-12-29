@@ -2,9 +2,9 @@
 path = "p/welcome.py"
 name = "Home"
 
-# [[pages]]
-# path = "p/teacher/communication.py"
-# name = "Communications"
+[[pages]]
+path = "p/teacher/communication.py"
+name = "Communications"
 
 # [[pages]]
 # path = "p/teacher/authorization.py"
