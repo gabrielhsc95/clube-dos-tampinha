@@ -25,7 +25,7 @@ named_parents: list[m.NamedParent] = [
 ]
 named_parents_dict = {f"{pp.first_name} {pp.last_name}": pp for pp in named_parents}
 
-# All teachers
+# All Teachers
 teachers = t.get_all_teachers(st.session_state["db_session"])
 named_teachers: list[m.NamedTeacher] = [
     u.to_named_version(st.session_state["db_session"], tt) for tt in teachers

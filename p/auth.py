@@ -31,7 +31,7 @@ def show_login_page():
             hashed_password, salt = hash_password(password)
             try:
                 u.create_user(
-                    st.session_state["db_session"], email, hashed_password, salt
+                    st.session_state["db_session"], email.lower(), hashed_password, salt
                 )
                 st.success(
                     TRANSLATIONS["registerSuccess"][st.session_state["language"]]
@@ -41,14 +41,16 @@ def show_login_page():
 
     with right_column:
         if st.button(TRANSLATIONS["login"][st.session_state["language"]]):
-            user = u.get_complete_user(st.session_state["db_session"], email)
-            if user.role is None:
+            complete_user = u.get_complete_user(
+                st.session_state["db_session"], email.lower()
+            )
+            if complete_user.role is None:
                 st.error(TRANSLATIONS["roleError"][st.session_state["language"]])
             else:
-                if check_password(password, user.password):
-                    st.session_state["user"] = user.to_user()
+                if check_password(password, complete_user.password):
+                    st.session_state["user"] = complete_user.to_user()
                     st.success(
-                        f"{TRANSLATIONS['loginSuccess'][st.session_state['language']]} {TRANSLATIONS[user.role][st.session_state['language']]}!"
+                        f"{TRANSLATIONS['loginSuccess'][st.session_state['language']]} {TRANSLATIONS[complete_user.role][st.session_state['language']]}!"
                     )
                     st.rerun()
                 else:
