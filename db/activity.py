@@ -1,4 +1,4 @@
-from datetime import date
+from datetime import date, datetime
 from typing import Iterable
 
 from cassandra.cluster import Session
@@ -21,7 +21,7 @@ def create_activity(
         INSERT INTO {KEY_SPACE}.activity 
             (id    , responsible_teacher, date                                 , student     , grade  , title  , report)
         VALUES 
-            (uuid(), {teacher_id}       , toDate('{date_.strftime("%Y-%m-%d")}'), {student_id}, {grade}, {title}, {report});
+            (uuid(), {teacher_id}       , toDate('{date_.strftime("%Y-%m-%d")}'), {student_id}, {grade}, '{title}', '{report}');
         """
     )
 
@@ -40,6 +40,10 @@ def get_activities(
     )
     activities = []
     for a in activities_db:
-        kwarg = {k: getattr(a, k) for k in activities.column_names}
+        kwarg = {k: getattr(a, k) for k in activities_db.column_names}
+        kwarg["id"] = str(kwarg["id"])
+        kwarg["responsible_teacher"] = str(kwarg["responsible_teacher"])
+        kwarg["student"] = str(kwarg["student"])
+        kwarg["date"] = datetime.strptime(str(kwarg["date"]), "%Y-%m-%d").date()
         activities.append(m.Activity(**kwarg))
     return activities
