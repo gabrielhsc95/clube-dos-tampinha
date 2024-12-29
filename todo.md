@@ -10,7 +10,7 @@
 - [x] Models: Activity
 - [x] Admin: See Activity
 - [x] Teacher: Log Activity
-- [ ] Parent: See Activity
+- [x] Parent: See Activity
 - [x] Models: Communication, Authorization
 - [x] Admin: Send Communication
 - [x] Admin: See Communication

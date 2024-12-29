@@ -26,7 +26,7 @@ def create_activity(
     )
 
 
-def get_activities(
+def get_activities_by_student_and_teacher(
     session: Session, student_id: str, responsible_teacher: str
 ) -> Iterable[m.Activity]:
     activities_db = session.execute(
@@ -35,6 +35,28 @@ def get_activities(
         FROM {KEY_SPACE}.activity
         WHERE student={student_id}
           AND responsible_teacher={responsible_teacher}
+        ALLOW FILTERING;
+        """
+    )
+    activities = []
+    for a in activities_db:
+        kwarg = {k: getattr(a, k) for k in activities_db.column_names}
+        kwarg["id"] = str(kwarg["id"])
+        kwarg["responsible_teacher"] = str(kwarg["responsible_teacher"])
+        kwarg["student"] = str(kwarg["student"])
+        kwarg["date"] = datetime.strptime(str(kwarg["date"]), "%Y-%m-%d").date()
+        activities.append(m.Activity(**kwarg))
+    return activities
+
+
+def get_activities_by_student(
+    session: Session, student_id: str
+) -> Iterable[m.Activity]:
+    activities_db = session.execute(
+        f"""
+        SELECT *
+        FROM {KEY_SPACE}.activity
+        WHERE student={student_id}
         ALLOW FILTERING;
         """
     )

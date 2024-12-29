@@ -14,6 +14,6 @@ name = "Início"
 # path = "p/parent/authorization.py"
 # name = "Autorizações"
 
-# [[pages]]
-# path = "p/parent/activities.py"
-# name = "Atividades"
+[[pages]]
+path = "p/parent/activities.py"
+name = "Atividades"

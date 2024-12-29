@@ -1,4 +1,4 @@
-from typing import Any, Iterable, List
+from typing import Iterable
 
 from cassandra.cluster import Session
 
@@ -31,3 +31,17 @@ def get_all_parents(session: Session) -> Iterable[m.Parent]:
         kwarg["user_id"] = str(kwarg["user_id"])
         parents.append(m.Parent(**kwarg))
     return parents
+
+
+def get_parent(session: Session, user_id: str) -> m.Parent:
+    result_db = session.execute(
+        f"""
+        SELECT *
+        FROM {KEY_SPACE}.parent
+        WHERE user_id={user_id};
+        """
+    )
+    first_result = result_db.one()
+    kwarg = {k: convert_lists(first_result, k) for k in result_db.column_names}
+    kwarg["user_id"] = str(kwarg["user_id"])
+    return m.Parent(**kwarg)
