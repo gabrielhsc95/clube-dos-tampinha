@@ -20,8 +20,9 @@
 - [x] Teacher: See Communication
 - [x] Teacher: Send Authorization
 - [x] Teacher: See Authorization
-- [ ] Parent: See Communication
-- [ ] Parent: Approve Authorization
+- [x] Parent: See Communication
+- [x] Parent: See Authorization
+- [x] Parent: Approve Authorization
 - [x] Models: Payments
 - [ ] Admin: Send Invoice
 - [ ] Admin: View Invoices

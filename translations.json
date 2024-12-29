@@ -214,5 +214,25 @@
     "logActivitySuccess": {
         "en": "Activity logged with success",
         "pt-br": "Atividade registrada com sucesso"
+    },
+    "confirmMessage": {
+        "en": "To confirm the following message please write your full name",
+        "pt-br": "Para confirmar a seguinte mensagem, escreva seu nome completo"
+    },
+    "signature": {
+        "en": "Signature",
+        "pt-br": "Assinatura"
+    },
+    "confirm": {
+        "en": "Confirm",
+        "pt-br": "Confirmar"
+    },
+    "authorizationConfirmed": {
+        "en": "Authorization confirmed",
+        "pt-br": "Autorização confirmada"
+    },
+    "wrongSignature": {
+        "en": "The ignature doesn't match your name in the database",
+        "pt-br": "A assinatura não corresponde ao seu nome no banco de dados"
     }
 }

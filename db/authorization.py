@@ -27,7 +27,7 @@ def view_authorization(session: Session, id: str):
     session.execute(
         f"""
         UPDATE {KEY_SPACE}.authorization
-        SET is_view=true
+        SET is_viewed=true
         WHERE id={id};
         """
     )

@@ -6,13 +6,13 @@ name = "Home"
 # path = "p/parent/payment.py"
 # name = "Payments"
 
-# [[pages]]
-# path = "p/parent/communication.py"
-# name = "Communications"
+[[pages]]
+path = "p/parent/communication.py"
+name = "Communications"
 
-# [[pages]]
-# path = "p/parent/authorization.py"
-# name = "Authorizations"
+[[pages]]
+path = "p/parent/authorization.py"
+name = "Authorizations"
 
 [[pages]]
 path = "p/parent/activity.py"

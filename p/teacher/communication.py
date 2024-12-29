@@ -77,6 +77,9 @@ if "user" in st.session_state:
                 (communications_df["sent_at"] >= start_date)
                 & (communications_df["sent_at"] <= end_date)
             ]
+            communications_df = communications_df.sort_values(
+                by="sent_at", ascending=False
+            )
             communications_df = communications_df.rename(
                 columns={
                     "receiver": TRANSLATIONS["to"][st.session_state["language"]],
