@@ -32,4 +32,22 @@
 - [ ] Logging
 - [ ] Log out
 
+# Bugs
+
+- [ ] Parent should get updated once student is created
+
+
+# Useful features
+
+- [ ] Multiple parents while creating student
+
+# Refactoring
+
+- [ ] name of the a pages_(...).toml could be inferred in app.py
+- [ ] student could have enrich
+- [ ] teacher could have enrich
+- [ ] parent could have enrich 
+- [ ] finish register could be allowed before role assignment
+
+
 

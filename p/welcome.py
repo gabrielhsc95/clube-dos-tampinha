@@ -1,6 +1,5 @@
 import streamlit as st
 
-import db.user as u
 import models as m
 from const import TRANSLATIONS
 

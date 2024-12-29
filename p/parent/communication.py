@@ -5,8 +5,6 @@ import streamlit as st
 
 import db.communication as c
 import db.parent as p
-import db.student as s
-import db.user as u
 import models as m
 from const import TRANSLATIONS
 
