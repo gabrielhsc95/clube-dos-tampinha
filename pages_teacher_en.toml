@@ -1,0 +1,15 @@
+[[pages]]
+path = "p/welcome.py"
+name = "Home"
+
+# [[pages]]
+# path = "p/teacher/communication.py"
+# name = "Communications"
+
+# [[pages]]
+# path = "p/teacher/authorization.py"
+# name = "Authorizations"
+
+[[pages]]
+path = "p/teacher/activity.py"
+name = "Activities"

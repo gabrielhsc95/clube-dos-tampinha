@@ -1,0 +1,19 @@
+[[pages]]
+path = "p/welcome.py"
+name = "Início"
+
+# [[pages]]
+# path = "p/parent/payment.py"
+# name = "Pagamentos"
+
+# [[pages]]
+# path = "p/parent/communication.py"
+# name = "Comunicações"
+
+# [[pages]]
+# path = "p/parent/authorization.py"
+# name = "Autorizações"
+
+# [[pages]]
+# path = "p/parent/activities.py"
+# name = "Atividades"

@@ -183,8 +183,36 @@
         "en": "End date",
         "pt-br": "Data de término"
     },
+    "date": {
+        "en": "Date",
+        "pt-br": "Data"
+    },
     "seeActivities": {
         "en": "See Activities",
         "pt-br": "Ver Atividades"
+    },
+    "logActivity": {
+        "en": "Log Activity",
+        "pt-br": "Registrar Atividade"
+    },
+    "title": {
+        "en": "Title",
+        "pt-br": "Título"
+    },
+    "report": {
+        "en": "Report",
+        "pt-br": "Relatório"
+    },
+    "grade": {
+        "en": "Grade",
+        "pt-br": "Nota"
+    },
+    "submit": {
+        "en": "Submit",
+        "pt-br": "Enviar"
+    },
+    "logActivitySuccess": {
+        "en": "Activity logged with success",
+        "pt-br": "Atividade registrada com sucesso"
     }
 }

@@ -1,13 +1,11 @@
 import streamlit as st
 from st_pages import get_nav_from_toml
 
-import p.auth as auth
 import models as m
+import p.auth as auth
 import p.finish_register as finish_register
-
-from const import TRANSLATIONS, LANGUAGE_MAP
+from const import LANGUAGE_MAP, TRANSLATIONS
 from db.session import create_session
-
 
 st.session_state["language"] = "en"
 nav = get_nav_from_toml("pages_init.toml")
@@ -41,5 +39,23 @@ else:
                 pg.run()
             elif st.session_state["language"] == "pt-br":
                 nav = get_nav_from_toml("pages_admin_pt_br.toml")
+                pg = st.navigation(nav)
+                pg.run()
+        elif user.role == m.UserRole.Teacher:
+            if st.session_state["language"] == "en":
+                nav = get_nav_from_toml("pages_teacher_en.toml")
+                pg = st.navigation(nav)
+                pg.run()
+            elif st.session_state["language"] == "pt-br":
+                nav = get_nav_from_toml("pages_teacher_pt_br.toml")
+                pg = st.navigation(nav)
+                pg.run()
+        elif user.role == m.UserRole.Parent:
+            if st.session_state["language"] == "en":
+                nav = get_nav_from_toml("pages_parent_en.toml")
+                pg = st.navigation(nav)
+                pg.run()
+            elif st.session_state["language"] == "pt-br":
+                nav = get_nav_from_toml("pages_parent_pt_br.toml")
                 pg = st.navigation(nav)
                 pg.run()

@@ -9,7 +9,7 @@
 - [x] Admin: Assign Students to Teacher
 - [x] Models: Activity
 - [x] Admin: See Activity
-- [ ] Teacher: Log Activity
+- [x] Teacher: Log Activity
 - [ ] Parent: See Activity
 - [x] Models: Communication, Authorization
 - [x] Admin: Send Communication

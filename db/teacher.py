@@ -33,6 +33,19 @@ def get_all_teachers(session: Session) -> Iterable[m.Teacher]:
     return teachers
 
 
+def get_teacher(session: Session, user_id: str) -> m.Teacher:
+    ressult_db = session.execute(
+        f"""
+        SELECT *
+        FROM {KEY_SPACE}.teacher;
+        """
+    )
+    first_result = ressult_db.one()
+    kwarg = {k: convert_lists(first_result, k) for k in ressult_db.column_names}
+    kwarg["user_id"] = str(kwarg["user_id"])
+    return m.Teacher(**kwarg)
+
+
 def assign_students(session: Session, user_id: str, students: List[str]):
     session.execute(
         f"""
