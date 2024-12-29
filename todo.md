@@ -18,8 +18,8 @@
 - [x] Admin: See Authorization
 - [x] Teacher: Send Communication
 - [x] Teacher: See Communication
-- [ ] Teacher: Send Authorization
-- [ ] Teacher: See Authorization
+- [x] Teacher: Send Authorization
+- [x] Teacher: See Authorization
 - [ ] Parent: See Communication
 - [ ] Parent: Approve Authorization
 - [x] Models: Payments

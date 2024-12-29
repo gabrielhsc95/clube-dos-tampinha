@@ -80,6 +80,50 @@ def get_all_authorizations(session: Session) -> Iterable[m.Authorization]:
     return authorizations
 
 
+def get_all_authorizations_by_sender(
+    session: Session, sender: str
+) -> Iterable[m.Authorization]:
+    authorizations_db = session.execute(
+        f"""
+        SELECT *
+        FROM {KEY_SPACE}.authorization
+        WHERE sender={sender}
+        ALLOW FILTERING;
+        """
+    )
+    authorizations = []
+    for c in authorizations_db:
+        kwarg = {k: getattr(c, k) for k in authorizations_db.column_names}
+        kwarg["id"] = str(kwarg["id"])
+        kwarg["sender"] = str(kwarg["sender"])
+        kwarg["receiver"] = str(kwarg["receiver"])
+        kwarg["sent_at"] = kwarg["sent_at"].date()
+        authorizations.append(m.Authorization(**kwarg))
+    return authorizations
+
+
+def get_all_authorizations_by_receiver(
+    session: Session, receiver: str
+) -> Iterable[m.Authorization]:
+    authorizations_db = session.execute(
+        f"""
+        SELECT *
+        FROM {KEY_SPACE}.authorization
+        WHERE receiver={receiver}
+        ALLOW FILTERING;
+        """
+    )
+    authorizations = []
+    for c in authorizations_db:
+        kwarg = {k: getattr(c, k) for k in authorizations_db.column_names}
+        kwarg["id"] = str(kwarg["id"])
+        kwarg["sender"] = str(kwarg["sender"])
+        kwarg["receiver"] = str(kwarg["receiver"])
+        kwarg["sent_at"] = kwarg["sent_at"].date()
+        authorizations.append(m.Authorization(**kwarg))
+    return authorizations
+
+
 def enrich_authorization(
     session: Session, authorization: m.Authorization
 ) -> m.Authorization:

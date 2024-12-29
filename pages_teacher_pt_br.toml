@@ -6,9 +6,9 @@ name = "Início"
 path = "p/teacher/communication.py"
 name = "Comunicações"
 
-# [[pages]]
-# path = "p/teacher/authorization.py"
-# name = "Autorizações"
+[[pages]]
+path = "p/teacher/authorization.py"
+name = "Autorizações"
 
 [[pages]]
 path = "p/teacher/activity.py"
