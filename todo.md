@@ -24,9 +24,9 @@
 - [x] Parent: See Authorization
 - [x] Parent: Approve Authorization
 - [x] Models: Payments
-- [ ] Admin: Send Invoice
-- [ ] Admin: View Invoices
-- [ ] Parent: View Invoices
+- [x] Admin: Send Invoice
+- [x] Admin: View Invoices
+- [x] Parent: View Invoices
 - [ ] Parent: Fake Payment
 - [ ] Parent: Real Payment
 - [ ] Logging

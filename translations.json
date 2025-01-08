@@ -234,5 +234,37 @@
     "wrongSignature": {
         "en": "The ignature doesn't match your name in the database",
         "pt-br": "A assinatura não corresponde ao seu nome no banco de dados"
+    },
+    "sendInvoice": {
+        "en": "Send Invoice",
+        "pt-br": "Enviar Fatura"
+    },
+    "value": {
+        "en": "Value",
+        "pt-br": "Valor"
+    },
+    "dueDate": {
+        "en": "Due date",
+        "pt-br": "Data de vencimento"
+    },
+    "sendInvoiceSuccess": {
+        "en": "Invoice sent with success",
+        "pt-br": "Fatura enviada com sucesso"
+    },
+    "viewInvoice": {
+        "en": "View Invoice",
+        "pt-br": "Ver Fatura"
+    },
+    "status": {
+        "en": "Status",
+        "pt-br": "Status"
+    },
+    "paymentDate": {
+        "en": "Payment date",
+        "pt-br": "Data de pagamento"
+    },
+    "paidBy": {
+        "en": "Paid by",
+        "pt-br": "Pago por"
     }
 }
